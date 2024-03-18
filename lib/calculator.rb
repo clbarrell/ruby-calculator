@@ -16,6 +16,4 @@ class Calculator
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
-  Calculator.main
-end
+Calculator.main if __FILE__ == $PROGRAM_NAME
