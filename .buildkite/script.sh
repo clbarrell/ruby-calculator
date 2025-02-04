@@ -3,9 +3,9 @@ BUILD_STATE=$(buildkite-agent meta-data get "build-state")
 buildkite-agent pipeline upload << 'INNEREOF'
   notify:
     - slack:
-      channels:
-        - "#general"
-      message: 'Selected build state is: $BUILD_STATE'
+        channels:
+          - "#general"
+        message: 'Selected build state is: $BUILD_STATE'
 INNEREOF
 
 echo -e "BUILD_STATE: $BUILD_STATE.\nRunning CASE statement..."
