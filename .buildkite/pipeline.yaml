@@ -1,0 +1,3 @@
+steps:
+  - label: ":gear: Execute Selected State"
+    command: ./script.sh

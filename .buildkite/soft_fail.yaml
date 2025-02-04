@@ -1,0 +1,4 @@
+steps:
+  - command: exit 1
+    label: ":warning: Soft Fail Step"
+    soft_fail: true
