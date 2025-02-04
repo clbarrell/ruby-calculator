@@ -2,8 +2,12 @@ notify:
   - slack:
       channels:
         - "#general"
-      message: "Selected build state is: $BUILD_STATE"
 
 steps:
   - label: ":gear: Execute Selected State"
     command: ./.buildkite/script.sh
+    notify:
+      - slack:
+          channels:
+            - "#general"
+          message: 'Selected build state is: $(buildkite-agent meta-data get "build-state")'
