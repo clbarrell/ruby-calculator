@@ -1,6 +1,5 @@
-
 BUILD_STATE=$(buildkite-agent meta-data get "build-state")
-echo "BUILD_STATE: $BUILD_STATE.\nRunning CASE statement..."
+echo -e "BUILD_STATE: $BUILD_STATE.\nRunning CASE statement..."
 case "$BUILD_STATE" in
   "passed")
     echo "Executing passed state"
@@ -20,7 +19,7 @@ case "$BUILD_STATE" in
     steps:
       - block: "This build is now blocked"
         blocked_state: "failed"
-    INNEREOF
+INNEREOF
     ;;
   "blocked-passed")
     echo "Adding blocked step"
@@ -28,7 +27,7 @@ case "$BUILD_STATE" in
     steps:
       - block: "This build is now blocked"
         blocked_state: "passed"
-    INNEREOF
+INNEREOF
     ;;
   "blocked-running")
     echo "Adding blocked step"
@@ -36,7 +35,7 @@ case "$BUILD_STATE" in
     steps:
       - block: "This build is now blocked"
         blocked_state: "running"
-    INNEREOF
+INNEREOF
     ;;
   "canceled")
     echo "Canceling build"
@@ -52,6 +51,6 @@ case "$BUILD_STATE" in
     steps:
       - command: "echo 'This step will be skipped'"
         skip: true
-    INNEREOF
+INNEREOF
     ;;
 esac
