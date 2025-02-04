@@ -1,6 +1,6 @@
 BUILD_STATE=$(buildkite-agent meta-data get "build-state")
 
-buildkite-agent pipeline upload << 'INNEREOF'
+buildkite-agent pipeline upload << INNEREOF
   notify:
     - slack:
         channels:
