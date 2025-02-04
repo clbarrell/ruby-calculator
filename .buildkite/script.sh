@@ -5,7 +5,7 @@ buildkite-agent pipeline upload << 'INNEREOF'
     - slack:
         channels:
           - "#general"
-        message: 'Selected build state is: $BUILD_STATE'
+        message: "Selected build state is: $BUILD_STATE"
 INNEREOF
 
 echo -e "BUILD_STATE: $BUILD_STATE.\nRunning CASE statement..."
