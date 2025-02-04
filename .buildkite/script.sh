@@ -6,8 +6,6 @@ buildkite-agent pipeline upload << INNEREOF
         channels:
           - "#general"
         message: "Selected build state is: $BUILD_STATE"
-  steps:
-    - ~
 INNEREOF
 
 echo -e "BUILD_STATE: $BUILD_STATE.\nRunning CASE statement..."
