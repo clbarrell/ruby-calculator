@@ -2,7 +2,8 @@ notify:
   - slack:
       channels:
         - "#general"
+      message: "Selected build state is: $BUILD_STATE"
 
 steps:
   - label: ":gear: Execute Selected State"
-    command: ls -la && ./.buildkite/script.sh
+    command: ./.buildkite/script.sh

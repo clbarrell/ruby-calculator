@@ -19,6 +19,7 @@ case "$BUILD_STATE" in
     steps:
       - block: "This build is now blocked"
         blocked_state: "failed"
+        label: "blocked failed"
 INNEREOF
     ;;
   "blocked-passed")
@@ -27,6 +28,7 @@ INNEREOF
     steps:
       - block: "This build is now blocked"
         blocked_state: "passed"
+        label: "blocked passed"
 INNEREOF
     ;;
   "blocked-running")
@@ -40,17 +42,5 @@ INNEREOF
   "canceled")
     echo "Canceling build"
     buildkite-agent build cancel
-    ;;
-  "running")
-    echo "Setting build to running state"
-    sleep 10
-    ;;
-  "skipped")
-    echo "Skipping remaining steps"
-    buildkite-agent pipeline upload << 'INNEREOF'
-    steps:
-      - command: "echo 'This step will be skipped'"
-        skip: true
-INNEREOF
     ;;
 esac
