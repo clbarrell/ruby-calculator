@@ -1,3 +1,8 @@
+notify:
+  - slack:
+      channels:
+        - "#general"
+
 steps:
   - label: ":gear: Execute Selected State"
     command: ls -la && ./.buildkite/script.sh
